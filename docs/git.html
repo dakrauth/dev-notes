@@ -33,10 +33,8 @@
             
   <div class="section" id="git">
 <h1>git<a class="headerlink" href="#git" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="common-git-commands">
-<h2>Common git commands<a class="headerlink" href="#common-git-commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="config">
-<h3>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h3>
+<h2>Config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
 <p>Set your details:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span> <span class="s2">&quot;John Doe&quot;</span>
 <span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="k">global</span> <span class="n">user</span><span class="o">.</span><span class="n">email</span> <span class="s2">&quot;john@example.com&quot;</span>
@@ -46,15 +44,16 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">config</span> <span class="o">--</span><span class="nb">list</span>
 </pre></div>
 </div>
-<p>Use <cite>–global</cite> to set the configuration for all projects.
-If git config is used without <cite>–global</cite> and run inside a project directory, the settings are set for the specific project.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">--global</span></code> to set the configuration for all projects.
+If git config is used without <code class="docutils literal notranslate"><span class="pre">--global</span></code> and run inside a project directory, the
+settings are set for the specific project.</p>
 <p>Add remote:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">remote</span> <span class="n">add</span> <span class="n">remote</span><span class="o">-</span><span class="n">name</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">user</span><span class="o">/</span><span class="n">repo</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="diff">
-<h3>Diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h3>
+<h2>Diff<a class="headerlink" href="#diff" title="Permalink to this headline">¶</a></h2>
 <p>See staged, non-commited changes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">cached</span>
 </pre></div>
@@ -63,21 +62,22 @@ If git config is used without <cite>–global</cite> and run inside a project di
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span>
 </pre></div>
 </div>
-<p>Note that origin/master is one local branch, a shorthand for refs/remotes/origin/master, which is the full name of the remote-tracking branch.</p>
+<p>Note that origin/master is one local branch, a shorthand for refs/remotes/origin/master,
+which is the full name of the remote-tracking branch.</p>
 <p>See differences between two commits:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="n">COMMIT1_ID</span> <span class="n">COMMIT2_ID</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">SHA1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">SHA2</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>See the files changed between two commits:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">name</span><span class="o">-</span><span class="n">only</span> <span class="n">COMMIT1_ID</span> <span class="n">COMMIT2_ID</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">--</span><span class="n">name</span><span class="o">-</span><span class="n">only</span> <span class="o">&lt;</span><span class="n">SHA1</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="n">SHA2</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>See the files changed in a specific commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span><span class="o">-</span><span class="n">tree</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">commit</span><span class="o">-</span><span class="nb">id</span> <span class="o">--</span><span class="n">name</span><span class="o">-</span><span class="n">only</span> <span class="o">-</span><span class="n">r</span> <span class="n">COMMIT_ID</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span><span class="o">-</span><span class="n">tree</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">commit</span><span class="o">-</span><span class="nb">id</span> <span class="o">--</span><span class="n">name</span><span class="o">-</span><span class="n">only</span> <span class="o">-</span><span class="n">r</span> <span class="o">&lt;</span><span class="n">SHA</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p><em>or</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">show</span> <span class="o">--</span><span class="n">pretty</span><span class="o">=</span><span class="s2">&quot;format:&quot;</span> <span class="o">--</span><span class="n">name</span><span class="o">-</span><span class="n">only</span> <span class="n">COMMIT_ID</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">show</span> <span class="o">--</span><span class="n">pretty</span><span class="o">=</span><span class="s2">&quot;format:&quot;</span> <span class="o">--</span><span class="n">name</span><span class="o">-</span><span class="n">only</span> <span class="o">&lt;</span><span class="n">SHA</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>See diff before push:</p>
@@ -85,7 +85,7 @@ If git config is used without <cite>–global</cite> and run inside a project di
 </pre></div>
 </div>
 <p>Compare commits on two branches:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="n">BRANCH1</span><span class="o">..</span><span class="n">BRANCH2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">diff</span> <span class="o">&lt;</span><span class="n">BRANCH1</span><span class="o">&gt;..&lt;</span><span class="n">BRANCH2</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>See differences between the current state and a branch:</p>
@@ -98,7 +98,7 @@ If git config is used without <cite>–global</cite> and run inside a project di
 </div>
 </div>
 <div class="section" id="reset">
-<h3>Reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h3>
+<h2>Reset<a class="headerlink" href="#reset" title="Permalink to this headline">¶</a></h2>
 <p>Undo the last local commit:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="o">^</span>
 </pre></div>
@@ -130,7 +130,7 @@ If git config is used without <cite>–global</cite> and run inside a project di
 </div>
 </div>
 <div class="section" id="tags">
-<h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
+<h2>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h2>
 <p>Create a tag:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">tag</span> <span class="mf">7.</span><span class="n">x</span><span class="o">-</span><span class="mf">1.3</span>
 </pre></div>
@@ -145,17 +145,13 @@ If git config is used without <cite>–global</cite> and run inside a project di
 <span class="n">git</span> <span class="n">show</span><span class="o">-</span><span class="n">ref</span> <span class="o">--</span><span class="n">tags</span> <span class="mf">1.0</span><span class="o">.</span><span class="mb">0b1</span>
 </pre></div>
 </div>
-<p>Stash only unstaged files:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">save</span> <span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">index</span>
-</pre></div>
-</div>
 <p>Stage all files, included deletions:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">add</span> <span class="o">-</span><span class="n">u</span>
 </pre></div>
 </div>
 <p>Revert a commit</p>
 <p><em>If a commit has already been shared publicly, this creates a changeset that reverses the commit.</em>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">revert</span> <span class="n">COMMITHASH</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">revert</span> <span class="o">&lt;</span><span class="n">SHA</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Undo a merge:</p>
@@ -175,7 +171,7 @@ If git config is used without <cite>–global</cite> and run inside a project di
 </pre></div>
 </div>
 <p>Push a local branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">BRANCH</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="o">&lt;</span><span class="n">BRANCH</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>List remote branches:</p>
@@ -184,7 +180,7 @@ If git config is used without <cite>–global</cite> and run inside a project di
 </div>
 <p><em>(or -a for all branches)</em></p>
 <p>Delete a remote branch:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="p">:</span><span class="n">BRANCH</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="p">:</span><span class="o">&lt;</span><span class="n">BRANCH</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Delete local tracking branches</p>
@@ -193,7 +189,7 @@ If git config is used without <cite>–global</cite> and run inside a project di
 </pre></div>
 </div>
 <p>Compare commit messages on two branches:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">cherry</span><span class="o">-</span><span class="n">mark</span> <span class="o">--</span><span class="n">oneline</span> <span class="n">BRANCH1</span><span class="o">..</span><span class="n">BRANCH2</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">log</span> <span class="o">--</span><span class="n">cherry</span><span class="o">-</span><span class="n">mark</span> <span class="o">--</span><span class="n">oneline</span> <span class="o">&lt;</span><span class="n">BRANCH1</span><span class="o">&gt;..&lt;</span><span class="n">BRANCH2</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Show non-pushed commits:</p>
@@ -213,9 +209,9 @@ If git config is used without <cite>–global</cite> and run inside a project di
 <p>Move commits to a new branch.</p>
 <p><strong>Dangerous!</strong> You will lose uncommitted work. Only works for moving commits to a new branch.
 Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="n">NEWBRANCH</span>
-<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">origin</span><span class="o">/</span><span class="n">BRANCH</span>
-<span class="n">git</span> <span class="n">checkout</span> <span class="n">NEWBRANCH</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">branch</span> <span class="o">&lt;</span><span class="n">NEWBRANCH</span><span class="o">&lt;</span>
+<span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">origin</span><span class="o">/&lt;</span><span class="n">BRANCH</span><span class="o">&gt;</span>
+<span class="n">git</span> <span class="n">checkout</span> <span class="o">&lt;</span><span class="n">NEWBRANCH</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Delete untracked files.</p>
@@ -241,10 +237,14 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 </div>
 </div>
 <div class="section" id="stashing-files">
-<h3>Stashing files<a class="headerlink" href="#stashing-files" title="Permalink to this headline">¶</a></h3>
+<h2>Stashing files<a class="headerlink" href="#stashing-files" title="Permalink to this headline">¶</a></h2>
 <p>Git stash is a very useful command, where git will ‘hide’ the changes on a dirty directory - but no worries you can re-apply them later. The command will save your local changes away and revert the working directory to match the HEAD commit.</p>
 <p>Stash local changes:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span>
+</pre></div>
+</div>
+<p>Stash only unstaged files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">stash</span> <span class="n">save</span> <span class="o">--</span><span class="n">keep</span><span class="o">-</span><span class="n">index</span>
 </pre></div>
 </div>
 <p>Stash local changes with a custom message:</p>
@@ -285,7 +285,7 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 </div>
 </div>
 <div class="section" id="branching-and-merging">
-<h3>Branching and merging<a class="headerlink" href="#branching-and-merging" title="Permalink to this headline">¶</a></h3>
+<h2>Branching and merging<a class="headerlink" href="#branching-and-merging" title="Permalink to this headline">¶</a></h2>
 <p>Creating a local branch:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">checkout</span> <span class="o">-</span><span class="n">b</span> <span class="n">branchname</span>
 </pre></div>
@@ -340,13 +340,9 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 </div>
 </div>
 <div class="section" id="committing-files">
-<h3>Committing files<a class="headerlink" href="#committing-files" title="Permalink to this headline">¶</a></h3>
-<p>Commit staged file(s):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;commit message&#39;</span>
-</pre></div>
-</div>
+<h2>Committing files<a class="headerlink" href="#committing-files" title="Permalink to this headline">¶</a></h2>
 <p>Add file and commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="n">filename</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;commit message&#39;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">&lt;</span><span class="n">FILENAME</span><span class="o">&gt;</span> <span class="o">-</span><span class="n">m</span> <span class="s1">&#39;commit message&#39;</span>
 </pre></div>
 </div>
 <p>Add file and commit staged file:</p>
@@ -354,9 +350,10 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 </pre></div>
 </div>
 <p>Amending a commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">--</span><span class="n">amend</span> <span class="s1">&#39;new commit message&#39;</span> <span class="ow">or</span> <span class="n">no</span> <span class="n">message</span> <span class="n">to</span> <span class="n">maintain</span> <span class="n">previous</span> <span class="n">message</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">commit</span> <span class="o">--</span><span class="n">amend</span> <span class="s1">&#39;new commit message&#39;</span>
 </pre></div>
 </div>
+<p>… or no message to maintain previous message</p>
 <p>Squashing commits together:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">rebase</span> <span class="o">-</span><span class="n">i</span>
 </pre></div>
@@ -371,32 +368,32 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 </pre></div>
 </div>
 <p>Squashing commits together using reset –soft:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="o">~</span><span class="n">number_of_commits</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">soft</span> <span class="n">HEAD</span><span class="o">~&lt;</span><span class="n">number_of_commits</span><span class="o">&gt;</span>
 <span class="n">git</span> <span class="n">commit</span>
 </pre></div>
 </div>
 <p><strong>WARNING:</strong> this will require force pushing commits, which is OK if this is on a branch before you push to master or create a Pull Request.</p>
 </div>
 <div class="section" id="resetting">
-<h3>Resetting<a class="headerlink" href="#resetting" title="Permalink to this headline">¶</a></h3>
+<h2>Resetting<a class="headerlink" href="#resetting" title="Permalink to this headline">¶</a></h2>
 <p>Mixes your head with a give SHA. This lets you do things like split a commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">mixed</span> <span class="p">[</span><span class="n">sha</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">mixed</span> <span class="o">&lt;</span><span class="n">SHA</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Upstream master:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span> <span class="o">--</span> <span class="n">filename</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span> <span class="n">origin</span><span class="o">/</span><span class="n">master</span> <span class="o">--</span> <span class="o">&lt;</span><span class="n">FILENAME</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>The version from the most recent commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span> <span class="o">--</span> <span class="n">filename</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span> <span class="o">--</span> <span class="o">&lt;</span><span class="n">FILENAME</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>The version before the most recent commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span><span class="o">^</span> <span class="o">--</span> <span class="n">filename</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="n">HEAD</span><span class="o">^</span> <span class="o">--</span> <span class="o">&lt;</span><span class="n">FILENAME</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Move head to specific commit:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="n">sha</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">reset</span> <span class="o">--</span><span class="n">hard</span> <span class="o">&lt;</span><span class="n">SHA</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>Reset the staging area and the working directory to match the most recent commit. In addition to unstaging changes, the –hard flag tells Git to overwrite all changes in the working directory, too.:</p>
@@ -413,15 +410,14 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 </div>
 </div>
 <div class="section" id="git-blame">
-<h3>Git blame<a class="headerlink" href="#git-blame" title="Permalink to this headline">¶</a></h3>
+<h2>Git blame<a class="headerlink" href="#git-blame" title="Permalink to this headline">¶</a></h2>
 <p>Show alteration history of a file with the name of the author:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">blame</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">blame</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">FILENAME</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Show alteration history of a file with the name of the author &amp;&amp; SHA:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">blame</span> <span class="p">[</span><span class="n">filename</span><span class="p">]</span> <span class="o">-</span><span class="n">l</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">blame</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">FILENAME</span><span class="o">&gt;</span><span class="p">]</span> <span class="o">-</span><span class="n">l</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -435,7 +431,6 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">git</a><ul>
-<li><a class="reference internal" href="#common-git-commands">Common git commands</a><ul>
 <li><a class="reference internal" href="#config">Config</a></li>
 <li><a class="reference internal" href="#diff">Diff</a></li>
 <li><a class="reference internal" href="#reset">Reset</a></li>
@@ -445,8 +440,6 @@ Moves all commits not on BRANCHNAME to NEWBRANCHNAME.:</p>
 <li><a class="reference internal" href="#committing-files">Committing files</a></li>
 <li><a class="reference internal" href="#resetting">Resetting</a></li>
 <li><a class="reference internal" href="#git-blame">Git blame</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>

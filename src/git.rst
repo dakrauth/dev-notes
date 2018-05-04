@@ -1,9 +1,5 @@
-===
 git
 ===
-
-Common git commands
-===================
 
 Config
 ------
@@ -17,9 +13,9 @@ See your settings::
 
     git config --list
 
-
-Use `--global` to set the configuration for all projects.
-If git config is used without `--global` and run inside a project directory, the settings are set for the specific project.
+Use ``--global`` to set the configuration for all projects.
+If git config is used without ``--global`` and run inside a project directory, the
+settings are set for the specific project.
 
 Add remote::
 
@@ -36,23 +32,24 @@ See differences between local changes and master::
 
     git diff origin/master
 
-Note that origin/master is one local branch, a shorthand for refs/remotes/origin/master, which is the full name of the remote-tracking branch.
+Note that origin/master is one local branch, a shorthand for refs/remotes/origin/master,
+which is the full name of the remote-tracking branch.
 
 See differences between two commits::
 
-    git diff COMMIT1_ID COMMIT2_ID
+    git diff <SHA1> <SHA2>
 
 See the files changed between two commits::
 
-    git diff --name-only COMMIT1_ID COMMIT2_ID
+    git diff --name-only <SHA1> <SHA2>
 
 See the files changed in a specific commit::
 
-    git diff-tree --no-commit-id --name-only -r COMMIT_ID
+    git diff-tree --no-commit-id --name-only -r <SHA>
 
 *or*::
 
-    git show --pretty="format:" --name-only COMMIT_ID
+    git show --pretty="format:" --name-only <SHA>
 
 See diff before push::
 
@@ -60,7 +57,7 @@ See diff before push::
 
 Compare commits on two branches::
 
-    git diff BRANCH1..BRANCH2
+    git diff <BRANCH1>..<BRANCH2>
 
 See differences between the current state and a branch::
 
@@ -120,10 +117,6 @@ Tag and share a release::
     git push --tags
     git show-ref --tags 1.0.0b1
 
-Stash only unstaged files::
-    
-    git stash save --keep-index
-
 Stage all files, included deletions::
 
     git add -u
@@ -132,7 +125,7 @@ Revert a commit
 
 *If a commit has already been shared publicly, this creates a changeset that reverses the commit.*::
 
-    git revert COMMITHASH
+    git revert <SHA>
 
 Undo a merge::
     
@@ -152,7 +145,7 @@ Show the current branch name::
 
 Push a local branch::
     
-    git push origin BRANCH
+    git push origin <BRANCH>
 
 List remote branches::
     
@@ -162,7 +155,7 @@ List remote branches::
 
 Delete a remote branch::
 
-    git push origin :BRANCH
+    git push origin :<BRANCH>
 
 Delete local tracking branches
 
@@ -172,7 +165,7 @@ Delete local tracking branches
 
 Compare commit messages on two branches::
 
-    git log --cherry-mark --oneline BRANCH1..BRANCH2
+    git log --cherry-mark --oneline <BRANCH1>..<BRANCH2>
 
 Show non-pushed commits::
 
@@ -194,9 +187,9 @@ Move commits to a new branch.
 **Dangerous!** You will lose uncommitted work. Only works for moving commits to a new branch.
 Moves all commits not on BRANCHNAME to NEWBRANCHNAME.::
     
-    git branch NEWBRANCH
-    git reset --hard origin/BRANCH
-    git checkout NEWBRANCH
+    git branch <NEWBRANCH<
+    git reset --hard origin/<BRANCH>
+    git checkout <NEWBRANCH>
 
 Delete untracked files.
 
@@ -229,6 +222,10 @@ Git stash is a very useful command, where git will 'hide' the changes on a dirty
 Stash local changes::
 
     git stash
+
+Stash only unstaged files::
+    
+    git stash save --keep-index
 
 Stash local changes with a custom message::
 
@@ -325,13 +322,9 @@ Pushing local branch after rebasing master into local branch::
 Committing files
 ----------------
 
-Commit staged file(s)::
-
-    git commit -m 'commit message'
-
 Add file and commit::
 
-    git commit filename -m 'commit message'
+    git commit <FILENAME> -m 'commit message'
 
 Add file and commit staged file::
 
@@ -339,7 +332,9 @@ Add file and commit staged file::
 
 Amending a commit::
 
-    git commit --amend 'new commit message' or no message to maintain previous message
+    git commit --amend 'new commit message'
+
+... or no message to maintain previous message
 
 Squashing commits together::
 
@@ -356,7 +351,7 @@ This will give you an interface on your core editor::
 
 Squashing commits together using reset --soft::
 
-    git reset --soft HEAD~number_of_commits
+    git reset --soft HEAD~<number_of_commits>
     git commit
 
 **WARNING:** this will require force pushing commits, which is OK if this is on a branch before you push to master or create a Pull Request.
@@ -366,23 +361,23 @@ Resetting
 
 Mixes your head with a give SHA. This lets you do things like split a commit::
 
-    git reset --mixed [sha]
+    git reset --mixed <SHA>
 
 Upstream master::
 
-    git reset HEAD origin/master -- filename
+    git reset HEAD origin/master -- <FILENAME>
 
 The version from the most recent commit::
 
-    git reset HEAD -- filename
+    git reset HEAD -- <FILENAME>
 
 The version before the most recent commit::
 
-    git reset HEAD^ -- filename
+    git reset HEAD^ -- <FILENAME>
 
 Move head to specific commit::
 
-    git reset --hard sha
+    git reset --hard <SHA>
 
 Reset the staging area and the working directory to match the most recent commit. In addition to unstaging changes, the --hard flag tells Git to overwrite all changes in the working directory, too.::
 
@@ -402,10 +397,10 @@ Git blame
 
 Show alteration history of a file with the name of the author::
 
-    git blame [filename]
+    git blame [<FILENAME>]
 
 Show alteration history of a file with the name of the author && SHA::
 
-    git blame [filename] -l
+    git blame [<FILENAME>] -l
 
 
